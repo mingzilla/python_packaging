@@ -5,7 +5,11 @@ This project shows how to set up the package structure of a python project. It c
 * to be able to run a single test file from where the test file is
 * to be able to run all the tests in a project
 
-### Challenges
+## Use Virtual Env
+* run init.sh - so that it creates a python environment for this project
+* run start.ps1 or start.sh - so that it activates the environment and install dependencies
+
+### Challenges without an environment
 * python by default doesn't know the root directory of the current project
 * so even if __init__ is put in each folder/module, the module cannot be found
 
@@ -34,10 +38,11 @@ def resolve_root():
 #### tests/base_util/test_value_util.py
 Before importing `src`, we `import __init__` and `resolve_root()` if this test file is run directly
 * `if __name__ == '__main__'` - true if running this file directly
+* `import __init__` should only be included when running directly, otherwise running all tests fail
+* to allow multiple statements in one line, need to disable flake8 E701,E702
 
 ```python
-import __init__
-if __name__ == '__main__': __init__.resolve_root()
+if __name__ == '__main__': import __init__; __init__.resolve_root()
 import unittest
 from src.base_util import value_util
 
