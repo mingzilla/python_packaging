@@ -8,6 +8,7 @@ This project shows how to set up the package structure of a python project. It c
 ## Use Virtual Env
 * run init.sh - so that it creates a python environment for this project
 * run start.ps1 or start.sh - so that it activates the environment and install dependencies
+* run run_unit_tests.ps1 or run_unit_tests.sh - run all unit tests
 
 ### Challenges without an environment
 * python by default doesn't know the root directory of the current project
