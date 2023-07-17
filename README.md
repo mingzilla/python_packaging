@@ -5,10 +5,18 @@ This project shows how to set up the package structure of a python project. It c
 * to be able to run a single test file from where the test file is
 * to be able to run all the tests in a project
 
-## Use Virtual Env
+### Use Virtual Env
 * run init.sh - so that it creates a python environment for this project
 * run start.ps1 or start.sh - so that it activates the environment and install dependencies
 * run run_unit_tests.ps1 or run_unit_tests.sh - run all unit tests
+
+#### Deleting a Virtual Env
+* simply just deactivate the env, and then delete the env folder
+
+#### Setting environment variables for a virtual env
+* when running python in different terminals, these terminals can activate different virtual envs without interfeering with each other
+* so environment variables can just be supplied to a script used activates the environment
+* before deactivating, unsetting these variables is optional if the terminal is dedicatedly used for a project
 
 ### Challenges without an environment
 * python by default doesn't know the root directory of the current project
