@@ -12,6 +12,7 @@ This project shows how to set up the package structure of a python project. It c
 
 #### Deleting a Virtual Env
 * simply just deactivate the env, and then delete the env folder
+  - `.\my-env\Scripts\deactivate.bat`
 
 #### Setting environment variables for a virtual env
 * when running python in different terminals, these terminals can activate different virtual envs without interfeering with each other

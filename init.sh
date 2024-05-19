@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ ! -d "python-packagin-env" ]; then
-    python -m venv python-packagin-env
+if [ ! -d "python-packaging-env" ]; then
+    python -m venv python-packaging-env
 fi
 
 echo ""
