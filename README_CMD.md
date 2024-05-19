@@ -6,7 +6,7 @@
 python -m venv python-packaging-env
 ```
 
-### activate virtual env
+### Activate virtual env
 
 * `start.ps1`
 * `start.ps`
@@ -17,7 +17,7 @@ python -m venv python-packaging-env
 
 It would then look like this `(my-env) $`
 
-### deactivate virtual env
+### Deactivate virtual env
 
 ```shell
 .\my-env\Scripts\deactivate
@@ -26,6 +26,7 @@ It would then look like this `(my-env) $`
 ### Install a Package
 
 * this package will only be installed to the activated environment
+* IDE - `docs/ide-v-env-config.png`
 
 ```shell
 pip install xxx
@@ -42,3 +43,8 @@ pip install -r requirements.txt
 * after deactivating, simply just delete the venv directory
 
 ----
+
+## Python Interpreter
+
+* start: type `python`
+* exit: type `exit()`
