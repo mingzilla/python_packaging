@@ -52,8 +52,14 @@ This project shows how to set up the package structure of a python project. It c
 
 ### `__init__.py`
 
-* The presence of an `__init__.py` file in a directory indicates to Python that the directory should be treated as a
-  package
+* package - The `__init__.py` file marks a directory as a Python package
+  - This allows you to import modules from that directory as if it were a package
+  - If a directory `directly` within `sys.path` contains an `__init__.py` file, Python recognizes it as a package
+* init code - The `__init__.py` file can execute initialization code for the package
+  - This code `runs` when `the package` or `a module` within the package is `imported`
+* terminologies
+  - `module` - a module is a single Python `file`
+  - `package` - a package is a `directory` that has a `__init__.py` file
 
 ### Challenges without using a virtual env
 * python by default doesn't know the root directory of the current project
