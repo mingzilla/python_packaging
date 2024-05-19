@@ -1,14 +1,23 @@
 # Python Packaging Example
 
+## Key Concepts
+
+* Virtual Env - Use Virtual Env, so that this project uses its own python (init.sh)
+* Activation - Virtual Env needs activating when used in command line, run a command to activate it (start.sh)
+* Python Path -
+
 ## Summary
 This project shows how to set up the package structure of a python project. It can be used as a python project template. The goal includes:
 * to be able to run a single test file from where the test file is
 * to be able to run all the tests in a project
 
-### Use Virtual Env
-* run init.sh - so that it creates a python environment for this project
-* run start.ps1 or start.sh - so that it activates the environment and install dependencies
-* run run_unit_tests.ps1 or run_unit_tests.sh - run all unit tests
+## Virtual Env
+
+### Use Virtual Env - Summary of scripts
+
+* run `init.sh` - so that it creates a python environment for this project
+* run `start.ps1` or `start.sh` - so that it activates the environment and install dependencies
+* run `run_unit_tests.ps1` or `run_unit_tests.sh` - run all unit tests
 
 #### Deleting a Virtual Env
 * simply just deactivate the env, and then delete the env folder
@@ -19,14 +28,23 @@ This project shows how to set up the package structure of a python project. It c
 * so environment variables can just be supplied to a script used activates the environment
 * before deactivating, unsetting these variables is optional if the terminal is dedicatedly used for a project
 
-### Challenges without an environment
-* python by default doesn't know the root directory of the current project
-* so even if __init__ is put in each folder/module, the module cannot be found
+## Python Path
 
-### How Python Works
-* if a folder is added to sys.path, this folder can be the root folder of a project
-  * all folders inside, if __init__.py is present, can be a importable module
-* if a folder is a sibling of the file to run, then it can be imported even if nothing is added to sys.path
+### How Python Path Works
+
+* `sys.path` is a list of strings that specifies the search path for modules
+  - When you import a module, Python searches through these directories
+  - When activating a virtual env, it modifies the `sys.path` to prioritize the environment's site-packages directory
+  - site-packages directory - a location where third-party Python packages and modules are installed
+* if a folder is added to `sys.path`, this folder can be the root folder of a project
+  - all folders inside, if `__init__.py` is present, can be an importable module
+* if a folder is a sibling of the file to run, then it can be imported even if nothing is added to `sys.path`
+
+### Challenges without using a virtual env
+* python by default doesn't know the root directory of the current project
+  - e.g. it doesn't know your source root dir is `./src`
+  - e.g. it doesn't know your test root dir is `./tests`
+* so even if `__init__.py` is put in each folder/module, the module cannot be found
 
 ### Proposal
 Since a test is in an arbitrary folder, to run one test file directly, we need to make sure the root folder is added to `sys.path`. The following shows how to do so:
