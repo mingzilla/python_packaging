@@ -26,7 +26,7 @@ It would then look like this `(my-env) $`
 ### Install a Package
 
 * this package will only be installed to the activated environment
-* IDE - `docs/ide-v-env-config.png`
+* IDE - add interpreter - `docs/ide-v-env-config.png`
 
 ```shell
 pip install xxx
