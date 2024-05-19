@@ -8,6 +8,9 @@ python -m venv python-packaging-env
 
 ### activate virtual env
 
+* `start.ps1`
+* `start.ps`
+
 ```shell
 .\my-env\Scripts\activate
 ```
