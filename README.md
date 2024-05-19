@@ -138,27 +138,31 @@ from ..up_1_level_directory_folder import file_inside_up_1_level_directory_folde
 
 ## Keywords
 ### Variables
-* __name__ 
+
+* `__name__`
   * when a module is imported, 
     * this variable is set to the name of the module
     * usually this is the name of the file without .py
   * when a module itself is run directly
     * the value of __name__ is '__main__'
-* '__main__' - 
-  * __main__ - there is no such a variable called __main__
-  * '__main__' - to be used to check if a file is run directly
-* __file__ - the name of the current file, including the full absolute path
+* `'__main__'` -
+  * `__main__` - there is no such a variable called `__main__`
+  * `'__main__'` - to be used to check if a file is run directly
+* `__file__` - the name of the current file, including the full absolute path
 
 ### Files
-* __main__.py
-* __init__.py - mark a directory to be a package
+
+* `__main__.py`
+* `__init__.py` - mark a directory to be a package
   * executed when this package is IMPORTED
   * so variables defined in this file are available to all the modules in the package
   * won't execute when a file in this package is run
 
 ## Code Execution
-### Differenciating if a file is directly run
-Differenciates if a file is run directly
+
+### Differentiating if a file is directly run
+
+Differentiates if a file is directly run/executed
 
 ```python
 if __name__ == '__main__':
@@ -170,6 +174,7 @@ else:
 Typically used in a unit test file e.g. The below resolves adds root_path to sys.path only if this test file is run directly
 
 ```python test_value_util.py
+import os, sys
 if __name__ == '__main__':
     root_path = os.path.dirname(
         os.path.dirname(
@@ -182,7 +187,7 @@ if __name__ == '__main__':
 * when running a python script
   * e.g. python c:/code/test_value_util.py, python knows the "code" directory
   * python also knows modules inside, so if there is a "sub" dir here, "import sub" works
-  * in this case, "sub" doesn't even need a __init__.py file
+  * in this case, "sub" doesn't even need a `__init__.py` file
 * python also knows paths available in sys.path
 
 ### Paths that Python doesn't knows
@@ -195,14 +200,14 @@ sys.path
 * is a list 
 * contains all the directories that Python will look in when you try to import a module
 
-```
+```python
 import sys
 sys.path
 ```
 
 ### Current Directory
 
-```
+```python
 import os
 os.getcwd()
 ```
@@ -215,7 +220,7 @@ If `test_value_util` contains `os.getcwd()`
 
 ### Absolute Path of Parent Directory
 
-```
+```python
 import os
 os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 ```
