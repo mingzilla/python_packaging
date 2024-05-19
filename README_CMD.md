@@ -31,6 +31,12 @@ It would then look like this `(my-env) $`
 pip install xxx
 ```
 
+or
+
+```shell
+pip install -r requirements.txt
+```
+
 ### Delete a virtual envs
 
 * after deactivating, simply just delete the venv directory
