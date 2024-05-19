@@ -4,7 +4,7 @@
 
 * Virtual Env - Use Virtual Env, so that this project uses its own python (init.sh)
 * Activation - Virtual Env needs activating when used in command line, run a command to activate it (start.sh)
-* Python Path -
+* Python Path - `sys.path` makes `.py` files visible to this project. It's changed after venv activation
 
 ## Summary
 This project shows how to set up the package structure of a python project. It can be used as a python project template. The goal includes:
@@ -17,13 +17,23 @@ This project shows how to set up the package structure of a python project. It c
 
 * run `init.sh` - so that it creates a python environment for this project
 * run `start.ps1` or `start.sh` - so that it activates the environment and install dependencies
+* run `python ./check-syspath.py` - shows `sys.path`
 * run `run_unit_tests.ps1` or `run_unit_tests.sh` - run all unit tests
 
-#### Deleting a Virtual Env
+### Activating a Virtual Env
+
+* When you activate a virtual environment
+  - `.\my-env\Scripts\activate.ps1`
+  - the activation script modifies the `PATH` environment variable to include the virtual environment’s bin or Scripts
+    directory at the beginning of the path
+  - This ensures that the Python interpreter and `pip` from the virtual environment are used
+  - `Lib/site-packages` is added to `sys.path`
+
+### Deleting a Virtual Env
 * simply just deactivate the env, and then delete the env folder
   - `.\my-env\Scripts\deactivate.bat`
 
-#### Setting environment variables for a virtual env
+### Setting environment variables for a virtual env
 * when running python in different terminals, these terminals can activate different virtual envs without interfeering with each other
 * so environment variables can just be supplied to a script used activates the environment
 * before deactivating, unsetting these variables is optional if the terminal is dedicatedly used for a project
@@ -35,10 +45,15 @@ This project shows how to set up the package structure of a python project. It c
 * `sys.path` is a list of strings that specifies the search path for modules
   - When you import a module, Python searches through these directories
   - When activating a virtual env, it modifies the `sys.path` to prioritize the environment's site-packages directory
-  - site-packages directory - a location where third-party Python packages and modules are installed
+  - Lib/site-packages directory - a location where third-party Python packages and modules are installed
 * if a folder is added to `sys.path`, this folder can be the root folder of a project
   - all folders inside, if `__init__.py` is present, can be an importable module
 * if a folder is a sibling of the file to run, then it can be imported even if nothing is added to `sys.path`
+
+### `__init__.py`
+
+* The presence of an `__init__.py` file in a directory indicates to Python that the directory should be treated as a
+  package
 
 ### Challenges without using a virtual env
 * python by default doesn't know the root directory of the current project
