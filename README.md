@@ -179,7 +179,7 @@ sys.path
 ```python
 import sys
 
-sys.path
+print(sys.path)
 ```
 
 ### Current Directory
