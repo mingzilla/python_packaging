@@ -9,7 +9,9 @@
 * `__init__.py` - marks a folder as a package
 
 ## Summary
+
 This project shows how to set up the package structure of a python project. It can be used as a python project template. The goal includes:
+
 * to be able to run a single test file from where the test file is
 * to be able to run all the tests in a project
 
@@ -20,7 +22,7 @@ This project shows how to set up the package structure of a python project. It c
 * run `init.sh` - so that it creates a python environment for this project
 * run `start.ps1` or `start.sh` - so that it activates the environment and install dependencies
 * run `python ./check-syspath.py` - shows `sys.path`
-* run `run_unit_tests.ps1` or `run_unit_tests.sh` - run all unit tests
+* run `run_unit_tests.ps1` or `run_unit_tests.sh` - run all unit tests (only works when venv is activated)
 
 ### Activating a Virtual Env
 
@@ -32,10 +34,12 @@ This project shows how to set up the package structure of a python project. It c
   - `Lib/site-packages` is added to `sys.path`
 
 ### Deleting a Virtual Env
+
 * simply just deactivate the env, and then delete the env folder
   - `.\my-env\Scripts\deactivate.bat`
 
 ### Setting environment variables for a virtual env
+
 * when running python in different terminals, these terminals can activate different virtual envs without interfeering with each other
 * so environment variables can just be supplied to a script used activates the environment
 * before deactivating, unsetting these variables is optional if the terminal is dedicatedly used for a project
@@ -70,16 +74,18 @@ This project shows how to set up the package structure of a python project. It c
   - e.g. it doesn't know your test root dir is `./tests`
 
 ### IDE lint
+
 * to allow multiple statements in one line, need to disable flake8 E701,E702
 
 ----
 
 # Useful Resource
+
 ## Importing
+
 * from folder1 import file1 - in this case, running func1 needs file1.func1()
 * from folder1.file1 import func1 - in this case, running func1 needs func1()
 * https://docs.python.org/3/tutorial/modules.html#packages
-
 
 ```
 from . import current_directory_file
@@ -88,26 +94,38 @@ from ..up_1_level_directory_folder import file_inside_up_1_level_directory_folde
 ```
 
 ## Keywords
+
 ### Variables
 
 * `__name__`
-  * when a module is imported, 
-    * this variable is set to the name of the module
-    * usually this is the name of the file without .py
-  * when a module itself is run directly
-    * the value of __name__ is '__main__'
-* `'__main__'` -
-  * `__main__` - there is no such a variable called `__main__`
-  * `'__main__'` - to be used to check if a file is run directly
+  - when a module is imported,
+  - this variable is set to the name of the module
+  - usually this is the name of the file without .py
+  - when a module itself is run directly, the value of `__name__` is `'__main__'`
+* `'__main__'`
+  - `__main__` - there is no such a variable called `__main__`
+    -`'__main__'` - to be used to check if a file is run directly
 * `__file__` - the name of the current file, including the full absolute path
 
 ### Files
 
-* `__main__.py`
-* `__init__.py` - mark a directory to be a package
-  * executed when this package is IMPORTED
-  * so variables defined in this file are available to all the modules in the package
-  * won't execute when a file in this package is run
+* `__main__.py` - marks a package to be executable
+  - `python -m mypackage` runs the `main()` function in `mypackage/__main__.py`
+* `__init__.py` - marks a directory to be a package
+  - executed when this package is IMPORTED
+  - so variables defined in this file are available to all the modules in the package
+  - won't execute when a file in this package is run
+
+```python
+# mypackage/__main__.py
+
+def main():
+  print("This is the main function of mypackage.")
+
+
+if __name__ == "__main__":
+  main()
+```
 
 ## Code Execution
 
@@ -117,15 +135,16 @@ Differentiates if a file is directly run/executed
 
 ```python
 if __name__ == '__main__':
-    print "Run Directly"
+  print("Run Directly")
 else:
-    print "Run by Import"
+  print("Run by Import")
 ```
 
 Typically used in a unit test file e.g. The below resolves adds root_path to sys.path only if this test file is run directly
 
 ```python test_value_util.py
 import os, sys
+
 if __name__ == '__main__':
     root_path = os.path.dirname(
         os.path.dirname(
@@ -134,7 +153,9 @@ if __name__ == '__main__':
 ```
 
 ## Path
+
 ### Paths that Python knows
+
 * when running a python script
   * e.g. python c:/code/test_value_util.py, python knows the "code" directory
   * python also knows modules inside, so if there is a "sub" dir here, "import sub" works
@@ -142,17 +163,22 @@ if __name__ == '__main__':
 * python also knows paths available in sys.path
 
 ### Paths that Python doesn't knows
+
 python doesn't know where the root directory is
+
 * so "from src.base_util import value_util" doesn't work, because src is not recognised
 * to make sure python knows "src", we need to make sure parent folder of "src" is in path
 
 ### Sys Path
-sys.path 
-* is a list 
+
+sys.path
+
+* is a list
 * contains all the directories that Python will look in when you try to import a module
 
 ```python
 import sys
+
 sys.path
 ```
 
@@ -160,10 +186,12 @@ sys.path
 
 ```python
 import os
+
 os.getcwd()
 ```
 
 If `test_value_util` contains `os.getcwd()`
+
 * `os.getcwd()` is `c:\code` when running the below
   * C:\code>python c:/code/util/test_value_util.py
 * `os.getcwd()` is `c:\code\util` when running the below
@@ -173,19 +201,24 @@ If `test_value_util` contains `os.getcwd()`
 
 ```python
 import os
+
 os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 ```
 
 ## Testing
+
 * https://docs.python.org/3/library/unittest.html
 
 ## Tutorial - Syntax
+
 * https://www.w3schools.com/python/python_conditions.asp
 
 ## Code Formatting
+
 * https://realpython.com/python-pep8/
 
 ### Ref
+
 * python project structure 1: https://realpython.com/python-application-layouts/
 * python project structure 2: https://docs.python-guide.org/writing/structure/#structure-of-code-is-key
 * python project structure 3: https://stackoverflow.com/questions/193161/what-is-the-best-project-structure-for-a-python-application
