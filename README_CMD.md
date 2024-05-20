@@ -3,7 +3,7 @@
 ### Create a virtual env
 
 ```shell
-python -m venv python-packaging-env
+python -m venv .venv
 ```
 
 ### Activate virtual env
