@@ -1,5 +1,3 @@
-if __name__ == '__main__': import __init__; __init__.resolve_root()
-
 import unittest
 from src.base_util import value_util
 

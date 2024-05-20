@@ -5,6 +5,8 @@
 * Virtual Env - Use Virtual Env, so that this project uses its own python (init.sh)
 * Activation - Virtual Env needs activating when used in command line, run a command to activate it (start.sh)
 * Python Path - `sys.path` makes `.py` files visible to this project. It's changed after venv activation
+* IDE Interpreter - set to the virtual env of this project, which adds project root to `sys.path`
+* `__init__.py` - marks a folder as a package
 
 ## Summary
 This project shows how to set up the package structure of a python project. It can be used as a python project template. The goal includes:
@@ -61,67 +63,14 @@ This project shows how to set up the package structure of a python project. It c
   - `module` - a module is a single Python `file`
   - `package` - a package is a `directory` that has a `__init__.py` file
 * virtual env
+  - make sure IDE Python Interpreter is set to the virtual env of this project, which adds project root to `sys.path`
   - without venv, python by default doesn't know the root directory of the current project
   - so even if `__init__.py` is put in each subfolder, modules within cannot be found
   - e.g. it doesn't know your source root dir is `./src`
   - e.g. it doesn't know your test root dir is `./tests`
 
-### Proposal
-
-Since a test is in an arbitrary folder, to run one test file directly,
-
-* we need to make sure the root folder is added to `sys.path`. The following shows how to do so:
-
-#### `tests/base_util/__init__.py`
-Put `resolve_root` into `__init__.py`, which finds the `root_path` and add it to `sys.path`
-
-```python
-import os
-import sys
-
-def resolve_root():
-    root_path = os.path.dirname(
-        os.path.dirname(
-            os.path.dirname(__file__)))
-    sys.path.append(root_path)
-```
-
-#### tests/base_util/test_value_util.py
-Before importing `src`, we `import __init__` and `resolve_root()` if this test file is run directly
-* `if __name__ == '__main__'` - true if running this file directly
-* `import __init__` should only be included when running directly, otherwise running all tests fail
+### IDE lint
 * to allow multiple statements in one line, need to disable flake8 E701,E702
-
-```python
-if __name__ == '__main__': import __init__; __init__.resolve_root()
-import unittest
-from src.base_util import value_util
-
-class Test_value_util(unittest.TestCase):
-
-    def test_is_string(self):
-        self.assertEqual(value_util.is_string("hello"), True)
-```
-
-#### src/base_util/value_util.py
-The source file, which is in the `src/base_util` package. The test file can't find this file if it doesn't `resolve_root()`
-
-```python
-def is_string(v):
-    return isinstance(v, str)
-```
-
-----
-
-### Proposal2
-If we don't want `src` and `tests` to be packages (because `from src.base_util import value_util` looks strange), then we need to
-* add `src` to sys.path, and add `tests` to sys.path
-
-An alternative is still using Proposal1, but changing `src` to the name of the project e.g.
-* root_folder/util/base_util - contains utils
-* root_folder/my_project - contains project logic
-* root_folder/tests/util/base_util - `from util.base_util import value_util`
-* root_folder/tests/my_project - `from my_project import project_logic`
 
 ----
 
