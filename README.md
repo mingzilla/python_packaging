@@ -60,17 +60,19 @@ This project shows how to set up the package structure of a python project. It c
 * terminologies
   - `module` - a module is a single Python `file`
   - `package` - a package is a `directory` that has a `__init__.py` file
-
-### Challenges without using a virtual env
-* python by default doesn't know the root directory of the current project
+* virtual env
+  - without venv, python by default doesn't know the root directory of the current project
+  - so even if `__init__.py` is put in each subfolder, modules within cannot be found
   - e.g. it doesn't know your source root dir is `./src`
   - e.g. it doesn't know your test root dir is `./tests`
-* so even if `__init__.py` is put in each folder/module, the module cannot be found
 
 ### Proposal
-Since a test is in an arbitrary folder, to run one test file directly, we need to make sure the root folder is added to `sys.path`. The following shows how to do so:
 
-#### tests/base_util/__init__.py
+Since a test is in an arbitrary folder, to run one test file directly,
+
+* we need to make sure the root folder is added to `sys.path`. The following shows how to do so:
+
+#### `tests/base_util/__init__.py`
 Put `resolve_root` into `__init__.py`, which finds the `root_path` and add it to `sys.path`
 
 ```python
