@@ -159,3 +159,69 @@ def subtract(x: int, y: int) -> int:
 result1 = apply_operation(5, 3, add)  # Output: 8
 result2 = apply_operation(5, 3, subtract)  # Output: 2
 ```
+
+## Basic types
+
+### Over 20 Built In Python Functions:
+
+* print()
+* type()
+* str()
+* int()
+* float()
+* input()
+* round()
+* sorted()
+* len()
+* range()
+* list()
+* min()
+* max()
+* sum()
+* zip()
+* bin()
+* hex()
+* set()
+* bool()
+* super()
+
+### String Methods:
+
+* .upper()
+* .lower()
+* .title()
+* .strip()
+* .count()
+* .join()
+* .startswith()
+* .replace()
+* .split()
+
+### Lists Methods:
+
+* .append()
+* .insert()
+* .pop()
+* .remove()
+* .sort()
+* .reverse()
+* .copy()
+* .index()
+
+### Dictionary Methods:
+
+* .items()
+* .keys()
+* .values()
+* .most_common()
+
+### And External Libraries:
+
+* math
+* datetime
+* cmath
+* random
+* collections
+* time
+* matplotlib
+* tkinter
