@@ -1,3 +1,10 @@
+# Summary
+
+* list
+* dictionary
+* typing
+* function as type
+
 ## List
 
 * create a list and assign 2 values [1, 2] in one line
@@ -127,7 +134,7 @@ result2 = my_function("5", 3)  # Output: 8
 
 ```
 
-* function as param with typing
+### function as param with typing
 
 ```python
 from typing import Callable
