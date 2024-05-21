@@ -4,6 +4,7 @@
 
 * common practice to call root source directory the same as root directory
 * package names are in singular form
+* test directory is commonly called `tests`
 
 ```markdown
 pet_store/
