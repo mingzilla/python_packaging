@@ -1,6 +1,11 @@
+# All the basic needed for each project
 # pydash==7.0.5
 pydash
 mypy
 pylint
 flake8
 black
+
+#############
+# openpyxl
+openpyxl
