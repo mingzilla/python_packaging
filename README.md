@@ -107,6 +107,15 @@ from ..up_1_level_directory_folder import file_inside_up_1_level_directory_folde
     -`'__main__'` - to be used to check if a file is run directly
 * `__file__` - the name of the current file, including the full absolute path
 
+```python
+def main():
+    print('Hello World!')
+
+
+if __name__ == '__main__':
+    main()  # if the file is run directly, then run main()
+```
+
 ### Files
 
 * `__main__.py` - marks a package to be executable
@@ -120,11 +129,11 @@ from ..up_1_level_directory_folder import file_inside_up_1_level_directory_folde
 # mypackage/__main__.py
 
 def main():
-  print("This is the main function of mypackage.")
+    print("This is the main function of mypackage.")
 
 
 if __name__ == "__main__":
-  main()
+    main()
 ```
 
 ## Code Execution
