@@ -47,6 +47,13 @@ filtered_list = list(filter(lambda x: x % 2 != 0, my_list))
 # filtered_list is now [1, 3, 5]
 ```
 
+## Set
+
+```python
+set1 = {'Jenny', 26, 'Parker', 'Parker', 10.5}  # use {}, not []
+print(set1)  # prints {10.5, 26, 'Jenny', 'Parker'} # auto sorting
+```
+
 ## Dictionary
 
 * create a dictionary and assign 2 values {'x': 1, 'y': 2} in one line
