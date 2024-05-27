@@ -1,9 +1,8 @@
 # Summary
 
-* list
-* dictionary
-* typing
-* function as type
+* list - create / get / add / update / remove / mapping / filter
+* set - create / get / add / update / remove
+* dictionary - create / get / add / update / remove / keys / values / mapping / filter
 
 ## List
 
@@ -49,6 +48,46 @@ filtered_list = list(filter(lambda x: x % 2 != 0, my_list))
 
 ## Set
 
+```Ask chatGPT
+show me how you can use a Set in python, i want
+create  - create a set in one line, with 2 values
+get  - get a value from a set
+add - add an item to a set
+update - update an item in a set
+remove - remove an item from a set
+```
+
+```python
+# Create a set
+my_set = {1, 2}
+print(f"Initial set: {my_set}")  # Output: {1, 2}
+
+# Get a value from a set - you cannot directly access elements by index
+value = 1
+if value in my_set:
+    print(f"{value} is in the set")  # Output: 1 is in the set
+else:
+    print(f"{value} is not in the set")
+
+# Add an item to a set
+my_set.add(3)
+print(f"Set after adding 3: {my_set}")  # Output: {1, 2, 3}
+
+# Update an item in a set (remove 2 and add 4) - does not support updating
+my_set.remove(2)
+my_set.add(4)
+print(f"Set after updating 2 to 4: {my_set}")  # Output: {1, 3, 4}
+
+# Remove an item from a set
+my_set.remove(3)
+print(f"Set after removing 3: {my_set}")  # Output: {1, 4}
+
+# Discard an item (4) from a set
+my_set.discard(4)
+print(f"Set after discarding 4: {my_set}")  # Output: {1}
+
+```
+
 ```python
 set1 = {'Jenny', 26, 'Parker', 'Parker', 10.5}  # use {}, not []
 print(set1)  # prints {10.5, 26, 'Jenny', 'Parker'} # auto sorting
@@ -56,14 +95,14 @@ print(set1)  # prints {10.5, 26, 'Jenny', 'Parker'} # auto sorting
 
 ## Dictionary
 
-* create a dictionary and assign 2 values {'x': 1, 'y': 2} in one line
-* add an item to a dictionary
-* get an item from a dictionary
-* remove an item from a dictionary
-* get all the keys from a dictionary
-* get all the values from a dictionary
-* lambda map function on a dictionary, so that each value `+1`
-* lambda filter function on a dictionary, e.g. return entries that are odd numbers
+* create - create a dictionary and assign 2 values {'x': 1, 'y': 2} in one line
+* add - add an item to a dictionary
+* get - get an item from a dictionary
+* remove - remove an item from a dictionary
+* keys - get all the keys from a dictionary
+* values - get all the values from a dictionary
+* mapping - lambda map function on a dictionary, so that each value `+1`
+* filter - lambda filter function on a dictionary, e.g. return entries that are odd numbers
 
 ```python
 # 1. Create a dictionary and assign 2 values [x: 1, y: 2] in one line
@@ -116,60 +155,9 @@ mapped_dict1 = {k: complex_operation(v) for k, v in my_dict.items()}
 mapped_dict2 = {k: (lambda x: x ** 2 + 3)(v) for k, v in my_dict.items()}
 ```
 
-## Typing
-
-* param: x can be str or int
-* param: y can only be int
-* return: -> type
-
-```python
-from typing import Union
-
-
-def my_function(x: Union[str, int], y: int) -> int:
-    if isinstance(x, int):
-        return x + y
-    elif isinstance(x, str):
-        return int(x) + y  # Convert the string to an integer before adding y
-    else:
-        raise ValueError("Parameter x must be a string or an integer")
-
-
-# Example usage:
-result1 = my_function(5, 3)  # Output: 8
-result2 = my_function("5", 3)  # Output: 8
-
-```
-
-### function as param with typing
-
-```python
-from typing import Callable
-
-
-def apply_operation(x: int, y: int, operation: Callable[[int, int], int]) -> int:
-    """Apply the specified operation to x and y."""
-    return operation(x, y)
-
-
-# Example usage:
-def add(x: int, y: int) -> int:
-    """Add two integers."""
-    return x + y
-
-
-def subtract(x: int, y: int) -> int:
-    """Subtract y from x."""
-    return x - y
-
-
-result1 = apply_operation(5, 3, add)  # Output: 8
-result2 = apply_operation(5, 3, subtract)  # Output: 2
-```
-
 ## Basic types
 
-### Over 20 Built In Python Functions:
+### Built-In Python Functions:
 
 * print()
 * type()
