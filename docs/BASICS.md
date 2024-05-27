@@ -53,6 +53,9 @@ class Teacher(Person):
 
 ## Function
 
+* how to write a function
+* how to provide typing
+
 ```python
 def calculate_minutes(seconds: int) -> float:
     minutes: float = seconds / 60  # variable creation does not need an extra keyword
@@ -112,6 +115,36 @@ for num in [1, 2, 3, 4, 5]:
 
 for i in range(3):
     print(i)
+```
+
+## mapping function
+
+```python
+def square(x):
+    return x ** 2
+
+
+numbers = [1, 2, 3]
+
+result = map(square, numbers)
+
+result_list = list(result)  # Convert to a list - [1, 4, 9]
+
+```
+
+## filter function
+
+```python
+def square(x):
+    return x > 2
+
+
+numbers = [1, 2, 3, 4, 5]
+
+result = filter(square, numbers)
+
+result_list = list(result)  # Convert to a list - [3, 4, 5]
+
 ```
 
 ## try, except, finally
