@@ -3,9 +3,11 @@
 * list - create / get / add / update / remove / mapping / filter
 * set - create / get / add / update / remove
 * dictionary - create / get / add / update / remove / keys / values / mapping / filter
+* Common Functions
 
 ## List
 
+```Ask chatGPT
 * create a list and assign 2 values [1, 2] in one line
 * add an item to a list
 * get an item from a list at index
@@ -13,6 +15,7 @@
 * remove an item at a certain index from a list
 * lambda map function on a list, e.g. a list [1, 2] runs a map function to add 1 to each item
 * lambda filter function on a list, e.g. return odd numbers only
+```
 
 ```python
 # 1. Create a list and assign 2 values [1, 2] in one line
@@ -95,6 +98,7 @@ print(set1)  # prints {10.5, 26, 'Jenny', 'Parker'} # auto sorting
 
 ## Dictionary
 
+```Ask chatGPT
 * create - create a dictionary and assign 2 values {'x': 1, 'y': 2} in one line
 * add - add an item to a dictionary
 * get - get an item from a dictionary
@@ -103,6 +107,7 @@ print(set1)  # prints {10.5, 26, 'Jenny', 'Parker'} # auto sorting
 * values - get all the values from a dictionary
 * mapping - lambda map function on a dictionary, so that each value `+1`
 * filter - lambda filter function on a dictionary, e.g. return entries that are odd numbers
+```
 
 ```python
 # 1. Create a dictionary and assign 2 values [x: 1, y: 2] in one line
@@ -155,7 +160,7 @@ mapped_dict1 = {k: complex_operation(v) for k, v in my_dict.items()}
 mapped_dict2 = {k: (lambda x: x ** 2 + 3)(v) for k, v in my_dict.items()}
 ```
 
-## Basic types
+## Common Functions
 
 ### Built-In Python Functions:
 
