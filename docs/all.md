@@ -2,9 +2,9 @@
 
 Things to learn for every programming language
 
-* basics
+* basics syntax
 * data structure
-* typing
+* strict typing
 * project structure
 * debug and testing in IDE, testing in command line
 * setting up a project
