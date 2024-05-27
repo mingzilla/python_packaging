@@ -130,11 +130,10 @@ for i in range(3):
 ## mapping function
 
 ```python
+# square = lambda x: x**2
 def square(x):
     return x ** 2
 
-
-# square = lambda x: x**2
 
 numbers = [1, 2, 3]
 
@@ -147,11 +146,10 @@ result_list = list(result)  # Convert to a list - [1, 4, 9]
 ## filter function
 
 ```python
+# myFn = lambda x: x > 2
 def myFn(x) -> bool:
     return x > 2
 
-
-# fnFn = lambda x: x > 2
 
 numbers = [1, 2, 3, 4, 5]
 
