@@ -1,12 +1,132 @@
 # Basics
 
+* types - types and casting
+* control flow - if/else, logical operators, loop
+* exception
+* fn 1 - function, lambda
+* fn 2 - map, filter
 * class & naming
 * inheritance
-* function, lambda
-* casting
-* if/else, loop
-* map, filter
-* exception
+
+## Data Types and Casting
+
+| Type    | Casting  |
+|---------|----------|
+| int     | int(v)   |
+| float   | float(v) |
+| boolean | bool(v)  |
+| str     | str(v)   |
+
+```python
+temperature: str = str(97.5)  # casting
+type(temperature)  # prints str
+```
+
+## control flow - if, elif, else
+
+```python
+score = 70
+
+if score >= 80:
+    print("big")
+
+elif score > 65:
+    print("mid")
+
+else:
+    print("small")
+
+```
+
+### Logical Operators
+
+* general operator is just like js
+* logical operators are as below
+
+| Operator | Example               |
+|----------|-----------------------|
+| and      | x > 2 and y == 1      |
+| or       | x > 3 or y > 5        |
+| not      | not(x > 10 and y > 5) |
+
+## control flow - for loop
+
+```python
+
+for num in [1, 2, 3, 4, 5]:
+    print(num)
+
+for i in range(3):
+    print(i)
+```
+
+## try, except, finally
+
+```python
+try:
+    print(sum([1, 2, 3]))
+
+except:
+    print("Error")
+
+finally:
+    print("Done")
+
+```
+
+## Function
+
+* how to write a function
+* how to provide typing
+
+```python
+def calculate_minutes(seconds: int) -> float:
+    minutes: float = seconds / 60  # variable creation does not need an extra keyword
+    return minutes
+
+```
+
+## lambda function
+
+* why? one line
+
+```python
+add_two = lambda x: x + 2
+add_two(5)
+
+```
+
+## mapping function
+
+```python
+# square = lambda x: x**2
+def square(x):
+    return x ** 2
+
+
+numbers = [1, 2, 3]
+
+result = map(square, numbers)
+
+result_list = list(result)  # Convert to a list - [1, 4, 9]
+
+```
+
+## filter function
+
+```python
+# myFn = lambda x: x > 2
+def myFn(x) -> bool:
+    return x > 2
+
+
+numbers = [1, 2, 3, 4, 5]
+
+result = filter(myFn, numbers)
+
+result_list = list(result)  # Convert to a list - [3, 4, 5]
+
+```
 
 ## Naming - Class
 
@@ -58,127 +178,5 @@ class Teacher(Person):
         self.subject = subject
 
         Person.__init__(self, name)
-
-```
-
-## Function
-
-* how to write a function
-* how to provide typing
-
-```python
-def calculate_minutes(seconds: int) -> float:
-    minutes: float = seconds / 60  # variable creation does not need an extra keyword
-    return minutes
-
-```
-
-## lambda function
-
-* why? one line
-
-```python
-add_two = lambda x: x + 2
-add_two(5)
-
-```
-
-## Casting
-
-```python
-temperature: str = str(97.5)  # casting
-type(temperature)  # prints str
-```
-
-## Data Types
-
-| Type    | Casting  |
-|---------|----------|
-| int     | int(v)   |
-| float   | float(v) |
-| boolean | bool(v)  |
-| str     | str(v)   |
-
-## Logical Operators
-
-* general operator is just like js
-* logical operators are as below
-
-| Operator | Example               |
-|----------|-----------------------|
-| and      | x > 2 and y == 1      |
-| or       | x > 3 or y > 5        |
-| not      | not(x > 10 and y > 5) |
-
-## if, elif, else
-
-```python
-score = 70
-
-if score >= 80:
-    print("big")
-
-elif score > 65:
-    print("mid")
-
-else:
-    print("small")
-
-```
-
-## for loop
-
-```python
-
-for num in [1, 2, 3, 4, 5]:
-    print(num)
-
-for i in range(3):
-    print(i)
-```
-
-## mapping function
-
-```python
-# square = lambda x: x**2
-def square(x):
-    return x ** 2
-
-
-numbers = [1, 2, 3]
-
-result = map(square, numbers)
-
-result_list = list(result)  # Convert to a list - [1, 4, 9]
-
-```
-
-## filter function
-
-```python
-# myFn = lambda x: x > 2
-def myFn(x) -> bool:
-    return x > 2
-
-
-numbers = [1, 2, 3, 4, 5]
-
-result = filter(myFn, numbers)
-
-result_list = list(result)  # Convert to a list - [3, 4, 5]
-
-```
-
-## try, except, finally
-
-```python
-try:
-    print(sum([1, 2, 3]))
-
-except:
-    print("Error")
-
-finally:
-    print("Done")
 
 ```
