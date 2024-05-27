@@ -15,15 +15,15 @@ class MyExampleClass:
     def public_method(self):
         return
 
-    @staticmethod
-    def public_static_method(x: int, y: int) -> int:
-        return x + y
-
     def _protected_method(self):
         return
 
     def __private_method(self):
         return
+
+    @staticmethod
+    def public_static_method(x: int, y: int) -> int:
+        return x + y
 
 
 if __name__ == "__main__":
