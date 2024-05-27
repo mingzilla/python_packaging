@@ -1,3 +1,13 @@
+# Basics
+
+* class & naming
+* inheritance
+* function, lambda
+* casting
+* if/else, loop
+* map, filter
+* exception
+
 ## Naming - Class
 
 ```python 
