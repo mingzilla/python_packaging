@@ -1,4 +1,4 @@
-# Basics
+# Basics Syntax
 
 * types - types and casting
 * control flow - if/else, logical operators, loop
