@@ -63,6 +63,16 @@ def calculate_minutes(seconds: int) -> float:
 
 ```
 
+## lambda function
+
+* why? one line
+
+```python
+add_two = lambda x: x + 2
+add_two(5)
+
+```
+
 ## Casting
 
 ```python
@@ -124,6 +134,8 @@ def square(x):
     return x ** 2
 
 
+# square = lambda x: x**2
+
 numbers = [1, 2, 3]
 
 result = map(square, numbers)
@@ -135,13 +147,15 @@ result_list = list(result)  # Convert to a list - [1, 4, 9]
 ## filter function
 
 ```python
-def square(x):
+def myFn(x) -> bool:
     return x > 2
 
 
+# fnFn = lambda x: x > 2
+
 numbers = [1, 2, 3, 4, 5]
 
-result = filter(square, numbers)
+result = filter(myFn, numbers)
 
 result_list = list(result)  # Convert to a list - [3, 4, 5]
 
@@ -160,14 +174,3 @@ finally:
     print("Done")
 
 ```
-
-## lambda function
-
-* why? one line
-
-```python
-add_two = lambda x: x + 2
-add_two(5)
-
-```
-
