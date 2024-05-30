@@ -9,3 +9,6 @@ black
 #############
 # openpyxl
 openpyxl
+pandas
+sqlalchemy
+pymysql
