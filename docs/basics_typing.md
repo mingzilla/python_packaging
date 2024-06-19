@@ -5,6 +5,14 @@
 
 ## Typing
 
+```python
+
+class Person:
+    age = 0
+    height = 0.0  # `height: float` does not make it a float field, the only way for python to know the type is by forcing a value into a field 
+    is_active = False
+```
+
 * param: x can be str or int
 * param: y can only be int
 * return: -> type
