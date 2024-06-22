@@ -22,6 +22,40 @@ temperature: str = str(97.5)  # casting
 type(temperature)  # prints str
 ```
 
+```python
+# Python does not make a field int by doing e.g. `age: int`. Without assignment, the field is not even present
+# The only reliable way to make a field int is by setting a value to it
+# This allows type checking, e.g.
+# if age is 0, isinstance(person.age, int) returns True
+# if age is None, isinstance(person.age, int) returns False
+
+from datetime import date, time, datetime
+
+
+class InVal:
+    INT = 0
+    FLOAT = 0.0
+    BOOL = False
+    STR = ""
+    DATE = date(2000, 1, 1)
+    TIME = time(0, 0, 0)
+    DATE_TIME = datetime(2000, 1, 1, 0, 0, 1)
+
+
+# Usage
+class MyObj:
+
+    def __init__(self):
+        self.int_field = InVal.INT
+        self.float_field = InVal.FLOAT
+        self.bool_field = InVal.BOOL
+        self.str_field = InVal.STR
+        self.date_field = InVal.DATE
+        self.time_field = InVal.TIME
+        self.datetime_field = InVal.DATE_TIME
+
+```
+
 ## control flow - if, elif, else
 
 ```python
