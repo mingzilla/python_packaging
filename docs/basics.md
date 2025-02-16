@@ -5,6 +5,7 @@
 * exception
 * fn 1 - function, lambda
 * fn 2 - map, filter
+* Keyword Arguments
 * class & naming
 * inheritance
 
@@ -161,6 +162,34 @@ result = filter(myFn, numbers)
 result_list = list(result)  # Convert to a list - [3, 4, 5]
 
 ```
+
+## Keyword Arguments, The * and ** Operators
+- Single asterisk (*): This operator is used to unpack sequences (like lists or tuples)
+- Double asterisk (**): This operator is used to unpack dictionaries. In function definitions
+
+```python
+# Unpack sequences
+def foo(*args):
+    for arg in args:
+        print(arg)
+
+foo(1, 2, 3)
+
+# Unpack dictionary
+def bar(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key} = {value}")
+
+bar(name="Alice", age=30)
+
+# Combined
+def baz(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+baz(1, 2, 3, name="Alice", age=
+```
+
 
 ## Naming - Class
 
