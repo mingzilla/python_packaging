@@ -100,8 +100,8 @@ for i in range(3):
 try:
     print(sum([1, 2, 3]))
 
-except:
-    print("Error")
+except Exception as e:
+    print(f"Error: {e}")
 
 finally:
     print("Done")
