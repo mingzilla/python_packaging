@@ -9,6 +9,7 @@
 * generators - yield
 * class & naming
 * inheritance
+* mixins
 
 ## Data Types and Casting
 
@@ -262,5 +263,37 @@ class Teacher(Person):
         self.subject = subject
 
         Person.__init__(self, name)
+
+```
+
+## Mixins
+- mixin basically adds methods to another class
+- the syntax looks identical to inheritance and they decide to call it mixin
+- when method names have conflicts, use the left, so it's a `priority` order, not `overriding`
+
+```python
+class LoggingMixin:
+    def log(self, message):
+        print(f"[LOG]: {message}")
+
+class SaveMixin:
+    def save(self):
+        print("Saving object to database...")
+
+    def log(self):
+        print("Hey")
+
+class Car(LoggingMixin, SaveMixin):
+    def drive(self):
+        self.log("Car is being driven")
+        print("Vroom vroom!")
+
+class Truck(LoggingMixin, SaveMixin):
+    pass # putting `pass` here just because otherwise python syntax breaks
+
+my_car = Car()
+my_car.drive()  # Output: [LOG]: Car is being driven
+                #          Vroom vroom!
+my_car.save()   # Output: Saving object to database...
 
 ```
