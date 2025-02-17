@@ -6,6 +6,7 @@
 * fn 1 - function, lambda
 * fn 2 - map, filter
 * Keyword Arguments
+* generators - yield
 * class & naming
 * inheritance
 
@@ -188,6 +189,26 @@ def baz(*args, **kwargs):
     print("Keyword arguments:", kwargs)
 
 baz(1, 2, 3, name="Alice", age=
+```
+
+## Generators
+- `yield` basically is similar to `return`, because they both return values
+- `yield` does not exit the function, it pauses; `return` exits the function
+- `yield` returns a generator, expecting a for loop to extract a value, which unpauses the `yield`; `return` returns 1 value
+  - the for loop internally calls to the generator's `__next__()` method, which resumes/unpauses `yield`
+
+```python
+def count_up_to(max):
+    count = 1
+    while count <= max:
+        yield count
+        count += 1
+
+# Using the generator
+counter = count_up_to(5)
+for number in counter:
+    print(number)
+
 ```
 
 
